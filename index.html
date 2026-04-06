@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Percentile Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Exam Percentile Calculator</h1>
+      <p class="subtitle">Find out where your score ranks compared to the rest</p>
+    </header>
+
+    <section id="calculator">
+      <div class="card">
+        <div class="toggle-group" role="group" aria-label="Center statistic">
+          <button id="toggle-mean" aria-pressed="true" type="button">Mean</button>
+          <button id="toggle-median" aria-pressed="false" type="button">Median</button>
+        </div>
+
+        <form id="calc-form" novalidate>
+          <div class="field">
+            <label for="score">Your Score</label>
+            <input type="number" id="score" placeholder="e.g. 82" autocomplete="off">
+            <span class="error-msg" id="score-error" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label for="center"><span id="center-label">Mean</span></label>
+            <input type="number" id="center" placeholder="e.g. 70" autocomplete="off">
+            <span class="error-msg" id="center-error" aria-live="polite"></span>
+          </div>
+
+          <div class="field">
+            <label for="stddev">Standard Deviation</label>
+            <input type="number" id="stddev" placeholder="e.g. 12" autocomplete="off">
+            <span class="error-msg" id="stddev-error" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn-calculate">Calculate Percentile</button>
+        </form>
+      </div>
+
+      <div id="result" class="card hidden" aria-live="polite">
+        <p class="result-label">You scored in the</p>
+        <div class="result-number-wrap">
+          <span id="percentile-value"></span>
+          <span class="result-suffix">percentile</span>
+        </div>
+        <p id="z-score-display" class="z-score"></p>
+        <p id="interpretation" class="interpretation"></p>
+      </div>
+
+      <div id="chart-container" class="card hidden">
+        <p class="chart-title">Score Distribution</p>
+        <svg id="bell-curve" viewBox="0 0 500 210" aria-label="Bell curve showing score distribution"></svg>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
