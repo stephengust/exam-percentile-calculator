@@ -1,1 +1,1 @@
-# exam-percentile-calculator-
+# exam-percentile-calculator
